@@ -16,7 +16,7 @@ A modern browser that supports localStorage.
 Import the library (Supports AMD)
 
 ```
-<script type='text/javascript' src='localDB.js'>
+<script type='text/javascript' src='LocalDB.js'>
 ```
 
 Create a collection
@@ -99,6 +99,6 @@ Show collections
 LDB.showCollections();
 ```
 
-# TODO
+# TO DO
 Configuration for REST API.
 Extra functionalities.

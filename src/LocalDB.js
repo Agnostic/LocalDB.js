@@ -1,5 +1,5 @@
 /*
-*   LocalDB.js v1.0 Beta
+*   LocalDB.js v1.0
 *   (c) 2013 Gilberto Avalos Osuna
 *   avalosagnostic@gmail.com
 */
