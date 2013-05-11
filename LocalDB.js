@@ -233,6 +233,10 @@
     LDB.collections = [];
   };
 
+  LDB.showCollections = function(){
+    return LDB.collections;
+  };
+
   /* Documents */
   var Item = LDB.Item = function (collectionName, fields) {
     var self         = this;

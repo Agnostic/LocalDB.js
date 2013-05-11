@@ -33,8 +33,8 @@ var item = {
   title: 'Book title test'
 };
 
-books.save(item, function(item){
-  console.log('New item:', item);
+books.save(item, function(_item){
+  console.log('New item:', _item);
 });
 ```
 
@@ -49,7 +49,56 @@ var items = [{
   title: 'New book'
 }];
 
-books.save(items, function(item){
-  console.log('New items:', item);
+books.save(items, function(_items){
+  console.log('New items:', _items);
 });
 ```
+
+Find and Update
+
+```
+books.find({ author: 'Author name' }, function(results){
+  if(results[0]){
+    results[0].author = 'New name';
+    results[0].save();
+  }
+});
+```
+
+Update
+
+```
+books.update({ author: 'Author name' }, function(updated_items){
+  console.log(updated_items);
+});
+```
+
+Delete
+
+```
+books.find({ author: 'Autor name' }, function(items){
+  for(var i in items){
+    items[i].delete();
+  }
+});
+```
+
+Drop collection
+
+```
+books.drop();
+```
+
+Drop all collections
+```
+LDB.clear();
+```
+
+Show collections
+```
+LDB.showCollections();
+```
+
+# TODO
+Configuration for REST API.
+Extra functionalities.
