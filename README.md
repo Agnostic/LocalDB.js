@@ -5,7 +5,9 @@ Lightweight NoSQL ODM for modern browsers.
 
 # What is LocalDB.js?
 
-LocalDB.js is a tool that maps the structure of the databases in objects using the localStorage API.
+LocalDB.js is a tool that maps the structure of the databases in objects using the localStorage API, no database drivers are required, just add the library and use it!
+
+Useful for web applications, mobile apps or game engines.
 
 # Requeriments
 
