@@ -55,16 +55,14 @@ Useful for web applications, mobile apps or game engines.</p>
 
 <p>Create a collection</p>
 
-<pre><code>
-var books = new LDB.Collection('books');
+<pre><code>var books = new LDB.Collection('books');
 </code></pre>
 
 <p>
   Adding documents
 </p>
 
-<pre><code>
-var item = {
+<pre><code>var item = {
   author: 'Author name',
   title: 'Book title test'
 };
@@ -76,8 +74,7 @@ books.save(item, function(_item){
 
 <p>Multiple items</p>
 
-<pre><code>
-var items = [{
+<pre><code>var items = [{
   author: 'Author name',
   title: 'Book title test'
 },{
@@ -94,8 +91,7 @@ books.save(items, function(_items){
 Find and Update
 </p>
 
-<pre><code>
-books.find({ author: 'Author name' }, function(results){
+<pre><code>books.find({ author: 'Author name' }, function(results){
   if(results[0]){
     results[0].author = 'New name';
     results[0].save();
@@ -105,16 +101,14 @@ books.find({ author: 'Author name' }, function(results){
 
 <p>Update</p>
 
-<pre><code>
-books.update({ author: 'Author name' }, function(updated_items){
+<pre><code>books.update({ author: 'Author name' }, function(updated_items){
   console.log(updated_items);
 });
 </code></pre>
 
 <p>Delete</p>
 
-<pre><code>
-books.find({ author: 'Autor name' }, function(items){
+<pre><code>books.find({ author: 'Autor name' }, function(items){
   for(var i in items){
     items[i].delete();
   }
@@ -123,20 +117,17 @@ books.find({ author: 'Autor name' }, function(items){
 
 <p>Drop collection</p>
 
-<pre><code>
-books.drop();
+<pre><code>books.drop();
 </code></pre>
 
 <p>Drop all collections</p>
 
-<pre><code>
-LDB.clear();
+<pre><code>LDB.clear();
 </code></pre>
 
 <p>Show collections</p>
 
-<pre><code>
-LDB.showCollections();
+<pre><code>LDB.showCollections();
 </code></pre>
 
 <h3>Support or Contact</h3>
