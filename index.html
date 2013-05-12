@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>LocalDB.js by Agnostic</title>
+    <title>LocalDB.js by Gilberto Avalos</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -34,40 +34,118 @@
           <h1>LocalDB.js</h1>
           <p>Lightweight NoSQL ODM for modern browsers.</p>
           <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/Agnostic">Agnostic</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+          <span class="credits left">Project maintained by <a href="https://github.com/Agnostic">Agnostic</a></span></span>
         </div>
 
-        <h3>Welcome to GitHub Pages.</h3>
+        <h3># What is LocalDB.js?</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>LocalDB.js is a tool that maps the structure of the databases in objects using the localStorage API, no database drivers are required, just add the library and use it!<br/><br/>
+Useful for web applications, mobile apps or game engines.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<h3>Requeriments</h3>
+<p>
+  A modern browser that supports localStorage.
+</p>
+
+<h3>How to use?</h3>
+<p>Import the library (Supports AMD)</p>
+
+<pre><code><script type='text/javascript' src='LocalDB.js'/>
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Create a collection</p>
 
-<h3>Designer Templates</h3>
+<pre><code>
+var books = new LDB.Collection('books');
+</code></pre>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>
+  Adding documents
+</p>
 
-<h3>Rather Drive Stick?</h3>
+<pre><code>
+var item = {
+  author: 'Author name',
+  title: 'Book title test'
+};
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+books.save(item, function(_item){
+  console.log('New item:', _item);
+});
+</code></pre>
 
-<h3>Authors and Contributors</h3>
+<p>Multiple items</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<pre><code>
+var items = [{
+  author: 'Author name',
+  title: 'Book title test'
+},{
+  autor: 'Another author',
+  title: 'New book'
+}];
+
+books.save(items, function(_items){
+  console.log('New items:', _items);
+});
+</code></pre>
+
+<p>
+Find and Update
+</p>
+
+<pre><code>
+books.find({ author: 'Author name' }, function(results){
+  if(results[0]){
+    results[0].author = 'New name';
+    results[0].save();
+  }
+});
+</code></pre>
+
+<p>Update</p>
+
+<pre><code>
+books.update({ author: 'Author name' }, function(updated_items){
+  console.log(updated_items);
+});
+</code></pre>
+
+<p>Delete</p>
+
+<pre><code>
+books.find({ author: 'Autor name' }, function(items){
+  for(var i in items){
+    items[i].delete();
+  }
+});
+</code></pre>
+
+<p>Drop collection</p>
+
+<pre><code>
+books.drop();
+</code></pre>
+
+<p>Drop all collections</p>
+
+<pre><code>
+LDB.clear();
+</code></pre>
+
+<p>Show collections</p>
+
+<pre><code>
+LDB.showCollections();
+</code></pre>
 
 <h3>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Having troubles? Check out the source code at <a href="http://github.com/Agnostic/LocalDB.js">http://github.com/Agnostic/LocalDB.js</a> or contact <a href="mailto:avalosagnostic@gmail.com">avalosagnostic@gmail.com</a>.</p>
       </section>
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
   </body>
 </html>
