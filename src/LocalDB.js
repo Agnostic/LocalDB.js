@@ -268,7 +268,6 @@
               }
             }
           });
-          localStorage.setItem('LocalDB_'+self.__collection, JSON.stringify(items));
         }
       }
     } else {
