@@ -101,6 +101,6 @@ Show collections
 LDB.showCollections();
 ```
 
-# TO DO
+# TODO
 Configuration for REST API.
 Extra functionalities.
