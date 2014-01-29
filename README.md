@@ -47,7 +47,7 @@ var items = [{
   author: 'Author name',
   title: 'Book title test'
 },{
-  autor: 'Another author',
+  author: 'Another author',
   title: 'New book'
 }];
 
@@ -78,7 +78,7 @@ books.update({ author: 'Author name' }, function(updated_items){
 Delete
 
 ```
-books.find({ author: 'Autor name' }, function(items){
+books.find({ author: 'Author name' }, function(items){
   for(var i in items){
     items[i].delete();
   }
