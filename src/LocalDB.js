@@ -420,6 +420,7 @@
 
   Collection.prototype.drop = function() {
     var self = this;
+    this.items = [];
     localStorage.setItem( 'LocalDB_'+self.name, '[]' );
   };
 
