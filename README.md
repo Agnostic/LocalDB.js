@@ -17,19 +17,19 @@ A modern browser that supports localStorage.
 
 Import the library (Supports AMD)
 
-```
+```html
 <script type='text/javascript' src='LocalDB.js'>
 ```
 
 Create a collection
 
-```
+```javascript
 var books = new LDB.Collection('books');
 ```
 
 Adding documents
 
-```
+```javascript
 var item = {
   author: 'Author name',
   title: 'Book title test'
@@ -42,7 +42,7 @@ books.save(item, function(_item){
 
 Multiple items
 
-```
+```javascript
 var items = [{
   author: 'Author name',
   title: 'Book title test'
@@ -58,7 +58,7 @@ books.save(items, function(_items){
 
 Find and Update
 
-```
+```javascript
 books.find({ author: 'Author name' }, function(results){
   if(results[0]){
     results[0].author = 'New name';
@@ -69,7 +69,7 @@ books.find({ author: 'Author name' }, function(results){
 
 Update
 
-```
+```javascript
 books.update({ author: 'Author name' }, function(updated_items){
   console.log(updated_items);
 });
@@ -77,7 +77,7 @@ books.update({ author: 'Author name' }, function(updated_items){
 
 Delete
 
-```
+```javascript
 books.find({ author: 'Author name' }, function(items){
   for(var i in items){
     items[i].delete();
@@ -87,17 +87,17 @@ books.find({ author: 'Author name' }, function(items){
 
 Drop collection
 
-```
+```javascript
 books.drop();
 ```
 
 Drop all collections
-```
+```javascript
 LDB.clear();
 ```
 
 Show collections
-```
+```javascript
 LDB.showCollections();
 ```
 
