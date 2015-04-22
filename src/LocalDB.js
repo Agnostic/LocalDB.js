@@ -316,6 +316,7 @@
     }
     var _exists = LDB.find(LDB.collections, function(item){ return item === name; });
     if(!_exists){
+      LDB.collections = LDB.collections || [];
       LDB.collections.push(name);
       localStorage.setItem('LocalDB', JSON.stringify(LDB.collections));
     }
